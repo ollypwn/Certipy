@@ -34,6 +34,19 @@ Certipy is an offensive tool for enumerating and abusing Active Directory Certif
 ```bash
 pip3 install certipy-ad
 ```
+### Docker
+
+Build the container:
+
+```
+$ sudo docker build -t certipy .
+```
+
+Run the container with arguments and mount a volume to collect the outfiles:
+
+```
+$ sudo docker run -v $(pwd):/opt/Certipy -it certipy find -u [username] -p [password] -dc-ip [dc-ip]
+```
 
 ## Usage
 
