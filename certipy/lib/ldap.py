@@ -124,9 +124,8 @@ class LDAPConnection:
                     channel_binding["channel_binding"] = ldap3.TLS_CHANNEL_BINDING if self.target.ldap_channel_binding else None
                 ldap_conn = ldap3.Connection(
                     ldap_server,
-                    user=user,
-                    password=ldap_pass,
-                    authentication=ldap3.NTLM,
+                    self.target.username,
+                    self.target.password,
                     auto_referrals=False,
                     receive_timeout=self.target.timeout * 10,
                     **channel_binding
